@@ -9,12 +9,20 @@
 	<description>聚合服务</description>
 	<packaging>pom</packaging>
 
+	<properties>
+		<java.version>11</java.version>
+		<spring-cloud.version>2021.0.4</spring-cloud.version>
+	</properties>
+
 	<modules>
-		<module>gulimall-coupon</module>
 		<module>gulimall-member</module>
+		<module>gulimall-coupon</module>
 		<module>gulimall-order</module>
 		<module>gulimall-product</module>
 		<module>gulimall-ware</module>
+		<module>renren-fast</module>
+		<module>renren-generator</module>
+		<module>gulimall-common</module>
 	</modules>
 
 </project>

@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://192.168.56.10:3306/gulimall_sms
+    driverClassName: com.mysql.cj.jdbc.Driver
+
+mybatis-plus:
+  mapperLocations: classpath*:/mapper/**/*.xml
+  globalConfig:
+    dbConfig:
+      idType: auto
+
+spring.main:
+  allow-circular-references: true
+
+server:
+  port: 7000
