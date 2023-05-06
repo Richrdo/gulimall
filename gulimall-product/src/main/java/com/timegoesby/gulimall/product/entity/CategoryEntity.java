@@ -9,11 +9,12 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 /**
  * 商品三级分类
- * 
+ *
  * @author ceaser
  * @email ceaser@gmail.com
  * @date 2023-04-26 16:19:28
@@ -62,6 +63,7 @@ public class CategoryEntity implements Serializable {
 	 */
 	private Integer productCount;
 
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	@TableField(exist = false)
 	private List<CategoryEntity> children;
 }
