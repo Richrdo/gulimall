@@ -35,22 +35,21 @@ public class AttrGroupServiceImpl extends ServiceImpl<AttrGroupDao, AttrGroupEnt
 
     @Override
     public PageUtils queryPage(Map<String, Object> params, Long catelogId) {
-        QueryWrapper<AttrGroupEntity> wrapper = new QueryWrapper<AttrGroupEntity>().eq("catelog_id", catelogId);
+        QueryWrapper<AttrGroupEntity> wrapper = new QueryWrapper<AttrGroupEntity>();
+        String key = (String) params.get("key");
+        // select * from pms_attr_groups where catelog_id=? and ( attr_group_id=key or attr_group_name like %key% )
+        if (!StringUtils.isEmpty(key)) {
+            wrapper.and((obj) -> {
+                obj.eq("attr_group_id", key).or().like("attr_group_name", key);
+
+            });
+        }
         if (catelogId == 0) {
             IPage<AttrGroupEntity> page = this.page(new Query<AttrGroupEntity>().getPage(params),
                     wrapper);
-            log.error("query is "+wrapper.getSqlSelect());
             return new PageUtils(page);
         } else {
-            String key = (String) params.get("key");
-            // select * from pms_attr_groups where catelog_id=? and ( attr_group_id=key or attr_group_name like %key% )
-            if (!StringUtils.isEmpty(key)) {
-                wrapper.and((obj) -> {
-                    obj.eq("attr_group_id", key).or().like("attr_group_name", key);
-
-                });
-            }
-            log.debug("query is "+wrapper.getSqlSelect());
+            wrapper.eq("catelog_id", catelogId);
             IPage<AttrGroupEntity> page = this.page(new Query<AttrGroupEntity>().getPage(params),
                     wrapper);
             return new PageUtils(page);

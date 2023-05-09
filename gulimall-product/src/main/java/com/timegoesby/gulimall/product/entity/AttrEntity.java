@@ -1,5 +1,6 @@
 package com.timegoesby.gulimall.product.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
@@ -9,7 +10,7 @@ import lombok.Data;
 
 /**
  * 商品属性
- * 
+ *
  * @author ceaser
  * @email ceaser@gmail.com
  * @date 2023-04-26 16:19:28
