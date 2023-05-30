@@ -63,27 +63,18 @@ public class AttrController {
         return R.ok();
     }
 
-
-    @GetMapping("/sale/list/{catelogId}")
-    public R attrSaleList(@RequestParam Map<String, Object> params,
-                          @PathVariable("catelogId")Long catelogId){
-
-//        PageUtils
-
-        return R.ok();
-    }
-
     /**
      * 获取属性分组
      * @param params
      * @param catelogId
      * @return
      */
-    @GetMapping("/base/list/{catelogId}")
+    @GetMapping("/{attrType}/list/{catelogId}")
     public R baseAttrList(@RequestParam Map<String, Object> params,
-                          @PathVariable("catelogId")Long catelogId){
+                          @PathVariable("catelogId")Long catelogId,
+                          @PathVariable("attrType")String type){
 
-        PageUtils page = attrService.queryBaseAttrPage(params,catelogId);
+        PageUtils page = attrService.queryBaseAttrPage(params,catelogId,type);
 
         return  R.ok().put("page",page);
     }
