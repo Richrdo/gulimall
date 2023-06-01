@@ -6,9 +6,7 @@ import com.timegoesby.common.constant.ProductConstant;
 import com.timegoesby.gulimall.product.dao.AttrAttrgroupRelationDao;
 import com.timegoesby.gulimall.product.dao.AttrGroupDao;
 import com.timegoesby.gulimall.product.dao.CategoryDao;
-import com.timegoesby.gulimall.product.entity.AttrAttrgroupRelationEntity;
-import com.timegoesby.gulimall.product.entity.AttrGroupEntity;
-import com.timegoesby.gulimall.product.entity.CategoryEntity;
+import com.timegoesby.gulimall.product.entity.*;
 import com.timegoesby.gulimall.product.service.CategoryService;
 import com.timegoesby.gulimall.product.vo.AttrGroupRelationVo;
 import com.timegoesby.gulimall.product.vo.AttrRespVo;
@@ -30,7 +28,6 @@ import com.timegoesby.common.utils.PageUtils;
 import com.timegoesby.common.utils.Query;
 
 import com.timegoesby.gulimall.product.dao.AttrDao;
-import com.timegoesby.gulimall.product.entity.AttrEntity;
 import com.timegoesby.gulimall.product.service.AttrService;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -267,6 +264,5 @@ public class AttrServiceImpl extends ServiceImpl<AttrDao, AttrEntity> implements
 
         return pageUtils;
     }
-
 
 }
